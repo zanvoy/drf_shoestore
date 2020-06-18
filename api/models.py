@@ -7,8 +7,14 @@ class Manufacturer(models.Model):
     name = models.TextField(max_length=40)
     website = models.URLField(max_length=200)
 
+    def __str__(self):
+        return self.name
+
 class ShoeType(models.Model):
     style = models.TextField(max_length=40)
+
+    def __str__(self):
+        return self.style
 
 class ShoeColor(models.Model):
     COLOR_CHOICES= [
@@ -23,6 +29,9 @@ class ShoeColor(models.Model):
         ('White', 'White')
     ]
     color_name = models.CharField(max_length=6,choices=COLOR_CHOICES)
+
+    def __str__(self):
+        return self.color_name
 
 class Shoe(models.Model):
     size = models.IntegerField()

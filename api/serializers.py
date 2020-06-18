@@ -1,7 +1,10 @@
 from api.models import Shoe, ShoeColor, ShoeType, Manufacturer
-from rest_framework.serializers import HyperlinkedModelSerializer
+from rest_framework.serializers import HyperlinkedModelSerializer, ModelSerializer, StringRelatedField
 
-class ShoeSerializer(HyperlinkedModelSerializer):
+class ShoeSerializer(ModelSerializer):
+    manufacturer = StringRelatedField()
+    color = StringRelatedField()
+    shoe_type = StringRelatedField()
     class Meta:
         model = Shoe
         fields = (
